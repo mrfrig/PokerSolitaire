@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PokerSolitaire.Controller
+namespace PokerSolitaire.Model
 {
     /**
      * Representa un turno del juego, posee un arreglo de 4 cartas, un nombre y una puntuacion segun la combinacion de cartas obtenida, y una puntuacion acumulada hasta ese turno en el juego.

@@ -44,9 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Carta.cs" />
+    <Compile Include="Controller\ArchivoController.cs" />
+    <Compile Include="Model\Carta.cs" />
     <Compile Include="Controller\JuegoController.cs" />
-    <Compile Include="Controller\Turno.cs" />
+    <Compile Include="Model\Turno.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -5,7 +5,7 @@ namespace PokerSolitaireTest
 {
     [TestClass]
     public class CartaTest
-    {
+    {        
         [TestMethod]
         public void TestMethod1()
         {

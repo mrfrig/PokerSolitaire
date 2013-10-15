@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PokerSolitaire.Controller;
+using PokerSolitaire.Model;
 
 namespace PokerSolitaire
 {
