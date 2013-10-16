@@ -6,9 +6,5 @@ namespace PokerSolitaireTest
     [TestClass]
     public class JuegoControllerTest
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
     }
 }
