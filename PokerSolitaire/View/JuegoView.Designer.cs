@@ -35,11 +35,11 @@
             this.mazo = new System.Windows.Forms.PictureBox();
             this.atras = new System.Windows.Forms.PictureBox();
             this.adelante = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.turno = new System.Windows.Forms.Label();
+            this.turnoLabel = new System.Windows.Forms.Label();
+            this.nombreCombinacion = new System.Windows.Forms.Label();
+            this.valorCombinacion = new System.Windows.Forms.Label();
+            this.puntuacionAcumulada = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.carta1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carta2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carta4)).BeginInit();
@@ -52,6 +52,7 @@
             // carta1
             // 
             this.carta1.BackColor = System.Drawing.Color.Transparent;
+            this.carta1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.carta1.InitialImage = null;
             this.carta1.Location = new System.Drawing.Point(39, 33);
             this.carta1.Name = "carta1";
@@ -62,6 +63,7 @@
             // carta2
             // 
             this.carta2.BackColor = System.Drawing.Color.Transparent;
+            this.carta2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.carta2.InitialImage = null;
             this.carta2.Location = new System.Drawing.Point(177, 33);
             this.carta2.Name = "carta2";
@@ -72,6 +74,7 @@
             // carta4
             // 
             this.carta4.BackColor = System.Drawing.Color.Transparent;
+            this.carta4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.carta4.InitialImage = null;
             this.carta4.Location = new System.Drawing.Point(466, 33);
             this.carta4.Name = "carta4";
@@ -82,6 +85,7 @@
             // carta3
             // 
             this.carta3.BackColor = System.Drawing.Color.Transparent;
+            this.carta3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.carta3.InitialImage = null;
             this.carta3.Location = new System.Drawing.Point(316, 33);
             this.carta3.Name = "carta3";
@@ -92,6 +96,7 @@
             // mazo
             // 
             this.mazo.BackColor = System.Drawing.Color.Transparent;
+            this.mazo.BackgroundImage = global::PokerSolitaire.Properties.Resources.CardBack;
             this.mazo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mazo.InitialImage = null;
             this.mazo.Location = new System.Drawing.Point(359, 242);
@@ -99,80 +104,89 @@
             this.mazo.Size = new System.Drawing.Size(98, 162);
             this.mazo.TabIndex = 4;
             this.mazo.TabStop = false;
+            this.mazo.Click += new System.EventHandler(this.mazo_Click);
             // 
             // atras
             // 
             this.atras.BackColor = System.Drawing.Color.Transparent;
+            this.atras.BackgroundImage = global::PokerSolitaire.Properties.Resources.AtrasDesactivado;
+            this.atras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.atras.Enabled = false;
             this.atras.Location = new System.Drawing.Point(478, 354);
             this.atras.Name = "atras";
             this.atras.Size = new System.Drawing.Size(51, 50);
             this.atras.TabIndex = 5;
             this.atras.TabStop = false;
+            this.atras.Click += new System.EventHandler(this.atras_Click);
             // 
             // adelante
             // 
             this.adelante.BackColor = System.Drawing.Color.Transparent;
+            this.adelante.BackgroundImage = global::PokerSolitaire.Properties.Resources.SiguienteDesactivado;
+            this.adelante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adelante.Enabled = false;
             this.adelante.Location = new System.Drawing.Point(550, 354);
             this.adelante.Name = "adelante";
             this.adelante.Size = new System.Drawing.Size(51, 50);
             this.adelante.TabIndex = 6;
             this.adelante.TabStop = false;
+            this.adelante.Click += new System.EventHandler(this.adelante_Click);
             // 
-            // label1
+            // turno
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(507, 264);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 86);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.turno.AutoSize = true;
+            this.turno.BackColor = System.Drawing.Color.Transparent;
+            this.turno.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.turno.Location = new System.Drawing.Point(507, 264);
+            this.turno.Name = "turno";
+            this.turno.Size = new System.Drawing.Size(72, 86);
+            this.turno.TabIndex = 7;
+            this.turno.Text = "0";
+            this.turno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // turnoLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(501, 242);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 32);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Turno";
+            this.turnoLabel.AutoSize = true;
+            this.turnoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.turnoLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.turnoLabel.Location = new System.Drawing.Point(501, 242);
+            this.turnoLabel.Name = "turnoLabel";
+            this.turnoLabel.Size = new System.Drawing.Size(78, 32);
+            this.turnoLabel.TabIndex = 8;
+            this.turnoLabel.Text = "Turno";
             // 
-            // label3
+            // nombreCombinacion
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(35, 264);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 21);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Combinación obtenida:";
+            this.nombreCombinacion.AutoSize = true;
+            this.nombreCombinacion.BackColor = System.Drawing.Color.Transparent;
+            this.nombreCombinacion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreCombinacion.Location = new System.Drawing.Point(35, 264);
+            this.nombreCombinacion.Name = "nombreCombinacion";
+            this.nombreCombinacion.Size = new System.Drawing.Size(170, 21);
+            this.nombreCombinacion.TabIndex = 9;
+            this.nombreCombinacion.Text = "Combinación obtenida:";
             // 
-            // label4
+            // valorCombinacion
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(35, 320);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 21);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Valor de combinación:";
+            this.valorCombinacion.AutoSize = true;
+            this.valorCombinacion.BackColor = System.Drawing.Color.Transparent;
+            this.valorCombinacion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valorCombinacion.Location = new System.Drawing.Point(35, 320);
+            this.valorCombinacion.Name = "valorCombinacion";
+            this.valorCombinacion.Size = new System.Drawing.Size(164, 21);
+            this.valorCombinacion.TabIndex = 10;
+            this.valorCombinacion.Text = "Valor de combinación:";
             // 
-            // label5
+            // puntuacionAcumulada
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(35, 383);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(171, 21);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Puntuación acumulada:";
+            this.puntuacionAcumulada.AutoSize = true;
+            this.puntuacionAcumulada.BackColor = System.Drawing.Color.Transparent;
+            this.puntuacionAcumulada.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puntuacionAcumulada.Location = new System.Drawing.Point(35, 383);
+            this.puntuacionAcumulada.Name = "puntuacionAcumulada";
+            this.puntuacionAcumulada.Size = new System.Drawing.Size(171, 21);
+            this.puntuacionAcumulada.TabIndex = 11;
+            this.puntuacionAcumulada.Text = "Puntuación acumulada:";
             // 
             // JuegoView
             // 
@@ -181,11 +195,11 @@
             this.AutoSize = true;
             this.BackgroundImage = global::PokerSolitaire.Properties.Resources.Background;
             this.ClientSize = new System.Drawing.Size(624, 441);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.puntuacionAcumulada);
+            this.Controls.Add(this.valorCombinacion);
+            this.Controls.Add(this.nombreCombinacion);
+            this.Controls.Add(this.turnoLabel);
+            this.Controls.Add(this.turno);
             this.Controls.Add(this.adelante);
             this.Controls.Add(this.atras);
             this.Controls.Add(this.mazo);
@@ -218,10 +232,10 @@
         private System.Windows.Forms.PictureBox mazo;
         private System.Windows.Forms.PictureBox atras;
         private System.Windows.Forms.PictureBox adelante;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label turno;
+        private System.Windows.Forms.Label turnoLabel;
+        private System.Windows.Forms.Label nombreCombinacion;
+        private System.Windows.Forms.Label valorCombinacion;
+        private System.Windows.Forms.Label puntuacionAcumulada;
     }
 }

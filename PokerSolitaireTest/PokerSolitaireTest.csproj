@@ -53,7 +53,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CartaTest.cs" />
     <Compile Include="TurnoTest.cs" />
-    <Compile Include="JuegoControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PokerSolitaire\PokerSolitaire.csproj">
